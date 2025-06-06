@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>1ο Γυμνάσιο Πυλαίας - Εγγραφή Γονέων</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            background-color: #e0f7f7;
+            color: #333;
+            flex: 1 0 auto;
+        }
+        main { flex: 1 0 auto; }
+        header {
+            background-color: #e0f7f7;
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid #b2e0e0;
+        }
+        header img {
+            width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto 12px auto;
+        }
+        header h1 {
+            font-size: 1.9em;
+            color: #005f5f;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        .school-info {
+            display: inline-block;
+            text-align: left;
+            line-height: 1.2;
+            font-size: 1.05em;
+            margin-top: 8px;
+        }
+        .school-info p {
+            margin: 6px 0;
+        }
+        .school-info strong {
+            display: inline-block;
+            width: 120px;
+            font-weight: 700;
+            color: #004d4d;
+        }
+        .school-info a {
+            color: #006666;
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .school-info a:hover {
+            color: #004040;
+            text-decoration: underline;
+        }
+        .collapsible {
+            background-color: #d6efef;
+            color: #004d4d;
+            cursor: pointer;
+            padding: 14px;
+            width: 90%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin: 20px auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+        }
+        .collapsible:hover { background-color: #c5e7e7; }
+        .collapsible:after {
+            content: '\25BC';
+            float: right;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        .collapsible.active:after { transform: rotate(180deg); }
+        .content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            background-color: #f9f9f9;
+            margin: 0 auto 20px auto;
+            padding: 0 18px;
+            border-radius: 6px;
+            width: 90%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            color: #333;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+        .content.open { max-height: 10000px; padding: 18px; }
+        .content ul { padding-left: 20px; }
+        .content ul li { margin-bottom: 8px; }
+        .contact-form {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .contact-form h2 { color: #005f5f; margin-bottom: 16px; text-align: center; }
+        .contact-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #004d4d;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Noto Sans', Arial, sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #006666;
+            outline: none;
+        }
+        .contact-form button {
+            background-color: #006666;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .contact-form button:hover { background-color: #004d4d; }
+        footer {
+            flex-shrink: 0;
+            background-color: #d6efef;
+            color: #444;
+            text-align: center;
+            font-size: 0.9em;
+            padding: 14px 10px;
+            border-top: 1px solid #b2e0e0;
+            margin-top: 24px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <img src="Greek coat of arms.png" alt="Εθνόσημο">
+        <h1>1ο Ημερήσιο Γυμνάσιο Πυλαίας Θεσσαλονίκης</h1>
+        <div class="school-info">
+            <p><strong>Διεύθυνση:</strong> Ισμήνης 4, Πυλαία Θεσσαλονίκης - 55535</p>
+            <p><strong>Διευθυντής:</strong> Δόμβρος Παναγιώτης</p>
+            <p><strong>Email:</strong> <a href="mailto:mail@1gym-pylaias.thess.sch.gr">mail@1gym-pylaias.thess.sch.gr</a></p>
+            <p><strong>Τηλέφωνο:</strong> 2310322232</p>
+            <p><strong>Ιστοσελίδα:</strong> <a href="https://1gym-pylaias.thess.sch.gr/" target="_blank">https://1gym-pylaias.thess.sch.gr/</a></p>
+        </div>
+    </header>
+
+
+<!-- Collapsible 1 -->
+<button class="collapsible">📝 Εγγραφή στην Α' Γυμνασίου</button>
+<div class="content">
+<p>Αγαπητοί γονείς και κηδεμόνες,</p>
+<p>Για την εγγραφή μαθητή/τριας στο Γυμνάσιο οι ενδιαφερόμενοι/ες καλούνται, προκειμένου να ολοκληρώσουν την εγγραφή τους, να υποβάλουν τα παρακάτω δικαιολογητικά:</p>
+<ul>
+<li>📄 Απολυτήριο Δημοτικού, εφόσον αυτό δεν έχει διαβιβαστεί υπηρεσιακά.</li>
+<li>📷 Μία φωτογραφία, εφόσον δεν έχει διαβιβαστεί υπηρεσιακά.</li>
+<li>🌍 Δήλωση 2ης ξένης γλώσσας (Γαλλικά ή Γερμανικά), εφόσον δεν έχει διαβιβαστεί υπηρεσιακά.</li>
+<li>📝 Υπεύθυνη Δήλωση του ν. 1599/1986 του κηδεμόνα για την άσκηση της κηδεμονίας και αποδοχή ηλεκτρονικής ενημέρωσης (η δήλωση παρέχεται από το σχολείο).</li>
+<li>📧 Υποχρεωτική ύπαρξη e-mail για ενημέρωση από το σχολείο και για την πορεία του παιδιού (και για εγγραφή στο Λύκειο).</li>
+<li>💊 Τα Ατομικά Δελτία Υγείας Μαθητή που δεν έχουν εκδοθεί για το Γυμνάσιο να κατατεθούν την πρώτη μέρα των μαθημάτων (μπορούν να συμπληρώνονται από Ιατρό ή Κέντρο Υγείας όλο το καλοκαίρι).</li>
+<li>🚌 Για μεταφορά με τα Λεωφορεία της Περιφέρειας → επικοινωνία με το σχολείο + αίτηση. Αν έχετε καταθέσει τη δήλωση στο Δημοτικό, ζητάτε αντίγραφο. Υπενθυμίζουμε: Ελάχιστη απόσταση για Γυμνάσιο: 3 χλμ. και άνω.</li>
+<li>🤝 Για θέματα Παράλληλης Στήριξης, Σχολικών Νοσηλευτών και γνωματεύσεων από ΚΕΔΑΣΥ → Υποδιεύθυνση Γυμνασίου (κ. Σικαρίδου – 2310322236).</li>
+<li>📞 Για οποιοδήποτε άλλο θέμα → Γραμματεία Γυμνασίου (κ. Μπγιάλα – 2310322338, 2310322232).</li>
+</ul>
+<p>⏰ <strong>Ώρες τηλεφωνικής ενημέρωσης για θέματα εγγραφών:</strong> 9.00 - 13.00.</p>
+<p>👥 Για δια ζώσης επικοινωνία με τον Διευθυντή απαιτείται ραντεβού → 📞 2310329199.</p>
+<p>Με εκτίμηση,<br>
+<strong>Παναγιώτης Δόμβρος</strong><br>
+Διευθυντής Γυμνασίου Επανομής</p>
+<hr>
+<p>📜 <strong>Αποσπάσματα από την εγκύκλιο 50025/26.09.2018 (Β'4217) για μεταφορά των μαθητών:</strong></p>
+<p><strong>Άρθρο 1:</strong> Οι Περιφέρειες μεταφέρουν δωρεάν τους μαθητές Πρωτοβάθμιας και Δευτεροβάθμιας Εκπαίδευσης, υπό τις παρακάτω προϋποθέσεις:</p>
+<ul>
+<li>🚶‍♂️ 1.200 μέτρα για μαθητές Πρωτοβάθμιας Εκπαίδευσης έως Β' Δημοτικού.</li>
+<li>🚍 3.000 μέτρα για μαθητές Γυμνασίων.</li>
+<li>🚌 5.000 μέτρα για μαθητές Λυκείων και ΕΠΑΛ.</li>
+</ul>
+<p><strong>Άρθρο 5:</strong> Ο Διευθυντής της σχολικής μονάδας:</p>
+<ul>
+<li>✅ Βεβαιώνει τους δικαιούχους μεταφοράς μαθητές μετά από εξακρίβωση της απόστασης.</li>
+<li>🗺️ Αν η διεύθυνση είναι ασαφής ή αμφισβητήσιμη → η Τεχνική Υπηρεσία του Δήμου παρέχει γεωαναφορά και απόσταση από το σχολείο.</li>
+<li>🚶 Υπολογίζεται η συντομότερη και ασφαλέστερη πεζή διαδρομή.</li>
+</ul>
+</div>
+
+<!-- Collapsible 2 -->
+<button class="collapsible">📢 Πρόσκληση σε διαδικτυακή ενημέρωση από το Διευθυντή του Γυμνασίου</button>
+<div class="content">
+<p>👋 Σας περιμένω για μια <strong>διαδικτυακή ενημέρωση</strong> για:</p>
+<ul>
+    <li>🎓 τη μετάβαση των μαθητών/τριών από το Δημοτικό στο Γυμνάσιο</li>
+    <li>📝 τη διαδικασία εγγραφών και μεταγραφών</li>
+</ul>
+<p>📅 <strong>Ημερομηνία:</strong> <strong>Τετάρτη 11-6-25</strong></p>
+<p>⏰ <strong>Ώρα:</strong> <strong>19.00 (7.00 το απόγευμα)</strong></p>
+<p>🌐 <strong>Ηλεκτρονική πλατφόρμα:</strong> Webex</p>
+<p>🔗 <strong>Σύνδεσμος:</strong> <a href="https://minedu-secondary.webex.com/meet/pdomvros" target="_blank"><strong>https://minedu-secondary.webex.com/meet/pdomvros</strong></a></p>
+</div>
+
+<!-- Contact Form -->
+<div class="contact-form">
+    <h2>Επικοινωνία με το Σχολείο</h2>
+    <form action="https://formsubmit.co/domvros.school@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <label for="name">Όνομα Γονέα / Κηδεμόνα:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="phone">Τηλέφωνο:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Μήνυμα:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Αποστολή</button>
+    </form>
+</div>
+
+<footer>
+    &copy; 1ο Ημερήσιο Γυμνάσιο Πυλαίας Θεσσαλονίκης | Όλα τα δικαιώματα διατηρούνται.
+</footer>
+
+<!-- SCRIPT για ΠΟΛΛΑ COLLAPSIBLES -->
+<script>
+document.querySelectorAll('.collapsible').forEach(button => {
+    button.addEventListener('click', function() {
+        this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('open');
+    });
+});
+</script>
+
+</main>
+</body>
+</html>
+
+<!-- Collapsible 3 -->
+<button class="collapsible">📥 Λήψη Απαραίτητων Εγγράφων</button>
+<div class="content">
+    <p>👨‍👩‍👦 Και οι δύο γονείς του παιδιού πρέπει να συμπληρώσουν την αντίστοιχη <strong>υπεύθυνη δήλωση</strong>.</p>
+    <p>📨 Οι υπεύθυνες δηλώσεις που εκδίδονται μέσω <strong>gov.gr</strong> να αποστέλλονται στο email: <a href="mailto:mail@1gym-pylaias.thess.sch.gr">mail@1gym-pylaias.thess.sch.gr</a></p>
+    <p>🩺 Το <strong>Ατομικό Δελτίο Υγείας Μαθητή/τριας</strong> πρέπει να έχει εκδοθεί <strong>μέχρι την έναρξη των μαθημάτων</strong>.</p>
+    <p>📷 Η <strong>φωτογραφία</strong> (απλή μικρή) μπορεί να παραδοθεί και από τους μαθητές την <strong>πρώτη μέρα των μαθημάτων</strong>.</p>
+    <hr>
+    <h3>📄 Έγγραφα για κατέβασμα:</h3>
+    <ul style="list-style-type: none; padding-left: 0; font-size: 1.1em;">
+        <li style="margin-bottom: 10px;">📄 <a href="files/ΑΤΟΜΙΚΟ ΔΕΛΤΙΟ ΥΓΕΙΑΣ.pdf" download>ΑΤΟΜΙΚΟ ΔΕΛΤΙΟ ΥΓΕΙΑΣ (PDF)</a></li>
+        <li style="margin-bottom: 10px;">📄 <a href="files/ΥΠΕΥΘΥΝΗ ΔΗΛΩΣΗ ΚΗΔΕΜΟΝΙΑΣ 1.docx" download>ΥΠΕΥΘΥΝΗ ΔΗΛΩΣΗ ΚΗΔΕΜΟΝΙΑΣ 1 (DOCX)</a></li>
+        <li style="margin-bottom: 10px;">📄 <a href="files/ΥΠΕΥΘΥΝΗ ΔΗΛΩΣΗ ΚΗΔΕΜΟΝΙΑΣ 2.docx" download>ΥΠΕΥΘΥΝΗ ΔΗΛΩΣΗ ΚΗΔΕΜΟΝΙΑΣ 2 (DOCX)</a></li>
+    </ul>
+</div>
+</main>
+</body>
+</html>
